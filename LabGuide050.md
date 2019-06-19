@@ -111,3 +111,51 @@ This is the first of several labs that are part of the **GraalVm on Oracle Cloud
 - You will see that your instance is now provisioning and can proceed to the next step.
 
     ![](images/050/14.png)
+
+### **STEP 6**: Test SSH, Download and Install Graal
+
+- Once your instance is provisioned the box will turn green and you will be provided with a public IP address. Copy the public IP and proceed.
+
+    ![](images/050/15.png)
+
+- Back in your terminal, within the same folder you created your keys, type the following
+
+    - Type ```ssh -i oci_instance_key opc@<YOUR_PUBLIC_IP>``` (pasting the public IP you just copied for **<YOUR_PUBLIC_IP>**)
+    - Ensure the connection was successful.
+    - Type ```exit```
+
+    ![](images/050/16.png)
+
+- Now download the graalVM linux edition from this link, https://www.oracle.com/technetwork/graalvm/downloads/index.html
+
+    ![](images/050/17.png)
+
+- View the zipped file in a file system viewer like Finder, right-click the file and select **Copy**.
+
+    ![](images/050/18.png)
+
+- Once more in your terminal, within the keys file, type the following command making the proper substitutions between the ```<>'s```.
+
+    - ```scp -i oci_instance_key <PASTE_HERE> opc@<YOUR_PUBLIC_IP>:```
+
+    ![](images/050/19.png)
+
+- Now SSH back into the instance and unzip the file you just copied in with the following commands.
+
+    - Login with: ```ssh -i oci_instance_key opc@<YOUR_PUBLIC_IP>```
+    - Then Unzip Graal: ```tar -xzf graalvm-ee-linux-amd64-19.0.2.tar.gz```
+
+- Use the following commands to tell your instance to use Graal in place of the native JVM.
+
+    - ```GRAALVM_VERSION=ee-19.0.2```
+    - ```export GRAALVM_HOME=graalvm-$GRAALVM_VERSION```
+    - ```export JAVA_HOME=$GRAALVM_HOME```
+    - ```export PATH=$GRAALVM_HOME/bin:$PATH```
+    - ```source ~/.bashrc```
+
+- Now ensure that your changes have taken effect and you can begin working with GraalVM in your instance with the following commands.
+
+    - ```which java```
+    - ```java -version```
+
+    ![](images/050/20.png)
