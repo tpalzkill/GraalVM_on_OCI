@@ -1,6 +1,6 @@
-# Low Code Application Development
+# GraalVM on Oracle Cloud Infrastructure
 
-This Oracle Public Cloud Low Code Application Development workshop will walk you through the creation of a web and mobile application, during which you will create and customize an application with visual development tools.
+This is the first of several labs that are part of the **GraalVm on Oracle Cloud Infrastructure Workshop** This workshop will walk you through how to improve polyglot application performance using GraalVm within an OCI Compute instance.
 
 ## Getting Started
 
